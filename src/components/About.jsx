@@ -15,7 +15,9 @@ const About = () => {
                 <span ref={ttlRef} className={inView && 'ttl-wave'}>ABOUT ME</span>
             </h2>
             <img src={portrait} alt="portrait" className='about-img'/>
-            <p className="about-txt">A hardworking web developer with 2 years+ of experience, and a BA in software engineering. Proficient at HTML, CSS, and JavaScript-based web development. Own knowledge of React. Also experienced in web design. Look for a job opportunity mainly as a React developer since my interest of more complex and challenging development.</p>
+            <p className="about-txt">
+              A hardworking web developer with a BS in software engineering and 2 years+ experience as a web designer/developer. I have a strong ability to continuously learn and improve my skills in order to deliver high-quality results under strict deadlines. This dedication has resulted in consistently receiving repeat orders from many of my clients as a freelance web designer. I am also passionate about UI/UX design and incorporate this into my web development work, allowing me to contribute to projects in a unique and valuable way.
+              </p>
         </div>
     </section>
   )
