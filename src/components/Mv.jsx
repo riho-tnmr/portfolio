@@ -15,7 +15,7 @@ const Mv = () => {
             <div className="mv-inner">
                 <h1 className="mv-ttl mv-ttl__pc">
                     <span className='mv-ttl__line'>I’m Riho Tanimura,</span>
-                    <span className='mv-ttl__line'>A <span className='mv-ttl__serif'>Web Developer</span> and <span className='mv-ttl__serif'>Designer</span></span>
+                    <span className='mv-ttl__line'>A <span className='mv-ttl__serif mv-ttl__serif-dev'>Web Developer</span> and <span className='mv-ttl__serif mv-ttl__serif-design'>Designer</span></span>
                     <span className='mv-ttl__line'>from Japan, based in Israel.</span>
                 </h1>
                 <h1 className="mv-ttl mv-ttl__sp">
@@ -23,7 +23,7 @@ const Mv = () => {
                     A <span className='mv-ttl__serif'>Web Developer</span> and <span className='mv-ttl__serif'>Designer</span> from Japan, based in Israel.
                 </h1>
                 <div className='mv-icons'>
-                    <img src={javascript} alt="javascript" />
+                    <img src={javascript} alt="javascript" className='js'/>
                     <img src={react} alt="react" />
                     <img src={html} alt="html" />
                     <img src={css} alt="css" />

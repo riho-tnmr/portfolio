@@ -17,7 +17,7 @@ $breakpoints: (
     @return calc($px / 1366 * 100vw);
 }
 
-@mixin wave($color) {
+@mixin wave($color, $duration) {
     content: '';
     position: absolute;
     bottom: -10px;
@@ -25,8 +25,7 @@ $breakpoints: (
     height: 10px;
     background-repeat: repeat-x;
     background-image: url("data:image/svg+xml,%3Csvg height='9.392' viewBox='0 0 33.739 9.392' width='33.739' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='m161.5 825.348c8.609 0 8.456-6.392 16.89-6.392s8.187 6.392 16.848 6.392' fill='none' stroke='%23#{$color}' stroke-width='3' transform='translate(-161.498 -817.455)'/%3E%3C/svg%3E");
-    animation-name: waveAnimation;
-    animation-duration: 3s;
+    animation: waveAnimation $duration linear;
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
@@ -204,22 +203,26 @@ a{
     font-family: var(--ttl);
     color: var(--main);
 }
-.mv-ttl__serif::before{
-    @include wave('FFDB00');
+.mv-ttl__serif-dev::before{
+    @include wave('FFDB00', 1.7s);
 
     @include mq('sp'){
         display: none;
     }
 }
-@keyframes waveAnimation{
-    0% {width: 0;}
-    100% {width: 100%;}
+.mv-ttl__serif-design::before{
+    @include wave('FFDB00', 1s);
+
+    @include mq('sp'){
+        display: none;
+    }
 }
 .mv-icons{
+    position: relative;
     display: flex;
     align-items: center;
     gap: 1rem;
-    margin-top: 3rem;
+    margin: 4rem 0 3rem;
     @include mq('sp'){
         flex-wrap: wrap;
         justify-content: center;
@@ -227,12 +230,85 @@ a{
     }
 }
 .mv-icons img{
+    position: relative;
     max-width: 5rem;
     max-height: 5.6rem;   
+    animation: icon0 .2s ease-in forwards,
+               icon1 .2s .3s ease-in forwards,
+               icon2 .2s .6s ease-in forwards,
+               icon3 .2s .9s ease-in forwards,
+               icon4 .2s 1.2s ease-in forwards,
+               icon5 .2s 1.5s ease-in forwards,
+               icon6 .2s 1.8s ease-in forwards,
+               icon7 .2s 2.1s ease-in forwards,
+               icon8 .2s 2.4s ease-in forwards,
+               icon9 .2s 2.7s ease-in forwards,
+               icon10 .2s 3s ease-in forwards,
+               icon11 .2s 3.3s ease-in forwards;
+
     @include mq('sp'){
         max-width: 3.6rem;
         max-height: 4rem;  
     }
+}
+@for $i from 0 to 18{
+    @keyframes icon#{$i}{
+        0%{
+            transform: rotate(#{-90 * $i}deg);
+            left: #{60 - 5 * $i}rem;
+        }
+        100%{
+            transform: rotate(#{-90 * $i - 90}deg);
+            left: #{55 - 5 * $i}rem;
+        }
+    }
+}
+@for $i from 0 to 6{
+    @keyframes js#{$i}{
+        0%{
+            transform: rotate(#{-180 - 90 * $i}deg);
+            left: #{-30 + 5 * $i}rem;
+        }
+        100%{
+            transform: rotate(#{-90 * $i}deg);
+            left: #{-25 + 5 * $i}rem;
+        }
+    }
+}
+@keyframes jsBack{
+    0%{
+        transform: rotate(-90deg);
+    }
+    100%{
+        transform: rotate(0);
+    }
+}
+.js{
+    animation: icon0 .2s ease-in forwards,
+               icon1 .2s .3s ease-in forwards,
+               icon2 .2s .6s ease-in forwards,
+               icon3 .2s .9s ease-in forwards,
+               icon4 .2s 1.2s ease-in forwards,
+               icon5 .2s 1.5s ease-in forwards,
+               icon6 .2s 1.8s ease-in forwards,
+               icon7 .2s 2.1s ease-in forwards,
+               icon8 .2s 2.4s ease-in forwards,
+               icon9 .2s 2.7s ease-in forwards,
+               icon10 .2s 3s ease-in forwards,
+               icon11 .2s 3.3s ease-in forwards,
+               icon12 .2s 3.6s ease-in forwards,
+               icon13 .2s 3.9s ease-in forwards,
+               icon14 .2s 4.2s ease-in forwards,
+               icon15 .2s 4.5s ease-in forwards,
+               icon16 .2s 4.8s ease-in forwards,
+               icon17 .2s 5.1s ease-in forwards,
+               js0 .1s 6.4s ease-in forwards,
+               js1 .1s 6.5s ease-in forwards,
+               js2 .1s 6.6s ease-in forwards,
+               js3 .1s 6.7s ease-in forwards,
+               js4 .1s 6.8s ease-in forwards,
+               js5 .1s 6.9s ease-in forwards,
+               jsBack .1s 8s ease-in forwards!important;
 }
 .mv-btn{
     position: relative;
@@ -240,7 +316,6 @@ a{
     max-width: 28rem;
     width: 100%;
     height: 6rem;
-    margin-top: 7rem;
     background-color: var(--main);
     border-radius: 8px;
     color: #fff;
@@ -276,7 +351,7 @@ a{
     }
 }
 .about .ttl-wave::before{
-    @include wave('EB4527');
+    @include wave('EB4527', 1s);
 }
 .about-txt{
     max-width: 90rem;
@@ -292,10 +367,10 @@ a{
     margin: 0 auto 2rem;
 }
 .works.WORKS .ttl-wave::before{
-    @include wave('63EB27');
+    @include wave('63EB27', 1s);
 }
 .works.PERSONAL .ttl-wave::before{
-    @include wave('276BEB');
+    @include wave('276BEB', 1s);
 }
 .works-lists{
     display: grid;
@@ -334,7 +409,7 @@ a{
     word-wrap: break-word;
 }
 .contact .ttl-wave::before{
-    @include wave('EB27B6');
+    @include wave('EB27B6', 1s);
 }
 .contact-txt{
     text-align: center;
@@ -421,4 +496,8 @@ a{
     text-align: center;
     color: #868686;
     text-decoration: underline;
+}
+@keyframes waveAnimation{
+    0% {width: 0;}
+    100% {width: 100%;}
 }
