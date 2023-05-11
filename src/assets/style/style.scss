@@ -283,6 +283,26 @@ a{
         transform: rotate(0);
     }
 }
+@keyframes jsWink {
+    0%{
+        transform: rotate(0deg);
+    }
+    30%{
+        transform: rotate(0deg);
+    }
+    50%{
+        transform: rotate(-30deg);
+        transform-origin: left bottom;
+    }
+    80%{
+        transform: rotate(-30deg);
+        transform-origin: left bottom;
+    }
+    100%{
+        transform: rotate(0deg);
+        transform-origin: left bottom;
+    }
+}
 .js{
     animation: icon0 .2s ease-in forwards,
                icon1 .2s .3s ease-in forwards,
@@ -308,7 +328,8 @@ a{
                js3 .1s 6.7s ease-in forwards,
                js4 .1s 6.8s ease-in forwards,
                js5 .1s 6.9s ease-in forwards,
-               jsBack .1s 8s ease-in forwards!important;
+               jsBack .1s 8s ease-in forwards,
+               jsWink .3s 9s ease-in forwards!important;
 }
 .mv-btn{
     position: relative;
